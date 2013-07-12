@@ -1,7 +1,8 @@
 MusicGaming::Application.routes.draw do
   get "home/index"
-
   get "home/about"
+
+  root to: 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
