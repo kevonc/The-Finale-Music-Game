@@ -1,14 +1,11 @@
 <h1>Games#level</h1>
+<h3>Welcome!!! GAME START NOW!!!! GOOD LUCK!!!</h3>
 
-Points: <%= @points %><br>
+Starting Point: 0<br>
 
-<%= @track.title %><br>
+<%= @track.title %> | <%= @track.genre %><br>
 
-<button><%= @track.genre %></button><br>
-
-
-
-<%= link_to "Next Level", level_path(params[:id].to_i + 1) %><br>
+<%= link_to "Next Level", level_path(2) %><br>
 ======
 <ol>
 <% $tracks_with_genre.each do |track| %>
