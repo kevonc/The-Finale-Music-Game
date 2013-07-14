@@ -4,11 +4,13 @@
 Starting Point: 0<br>
 
 <%= @track.title %><br>
-
-<button><%= @track_genre %></button><br>
+<br>
+<ul id="answers">
+<li><button><%= @track_genre %></button></li>
 <% @genre_list.each do |genre| %>
-  <button><%= genre.kind %></button>
+  <li><button><%= genre.kind %></button></li>
 <% end %>
+</ul>
 <br>
 
 <%= link_to "Next Level", level_path(2) %><br>
