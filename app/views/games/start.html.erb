@@ -3,7 +3,13 @@
 
 Starting Point: 0<br>
 
-<%= @track.title %> | <%= @track.genre %><br>
+<%= @track.title %><br>
+
+<button><%= @track_genre %></button><br>
+<% @genre_list.each do |genre| %>
+  <button><%= genre.kind %></button>
+<% end %>
+<br>
 
 <%= link_to "Next Level", level_path(2) %><br>
 ======

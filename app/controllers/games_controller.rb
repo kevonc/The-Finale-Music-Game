@@ -10,17 +10,30 @@ class GamesController < ApplicationController
     # get rid of tracks that have no genre stated
     $tracks_with_genre = []
     @tracks.each do |track|
-      if track.genre || track.genre == ''
+      if track.genre && track.genre != ''
         $tracks_with_genre << track
       end
     end
 
+
+    @genre_list = Genre.all
+    @genre_list.shuffle!
+    @genre_list = @genre_list[0..2]
+
     @track = $tracks_with_genre.first
+    @track_genre = @track.genre.capitalize
   end
 
   def level
-    id = params[:id].to_i
-    @track = $tracks_with_genre[id]
+    @id = params[:id].to_i
+    @track = $tracks_with_genre[@id]
+    @track_genre = @track.genre.capitalize
+
+    @genre_list = Genre.all
+    @genre_list.shuffle!
+    @genre_list = @genre_list[0..2]
+
+
     @points = 10
   end
 

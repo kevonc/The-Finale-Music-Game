@@ -3,12 +3,20 @@
 Points: <%= @points %><br>
 
 <%= @track.title %><br>
+<br>
+<ul id="answers">
+<li><button><%= @track_genre %></button></li>
+<% @genre_list.each do |genre| %>
+  <li><button><%= genre.kind %></button></li>
+<% end %>
+</ul>
+<br>
 
-<button><%= @track.genre %></button><br>
-
-
-
-<%= link_to "Next Level", level_path(params[:id].to_i + 1) %><br>
+<% unless @id == 50 %>
+  <%= link_to "Next Level", level_path(@id + 1) %><br>
+<% else %>
+  Finish! Check how you did compared to other contestants!<br>
+<% end %>
 ======
 <ol>
 <% $tracks_with_genre.each do |track| %>
