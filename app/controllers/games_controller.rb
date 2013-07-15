@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   end
 
   def level
-    client = Soundcloud.new(:client_id => 'fd18da9af13744f5233916b5025adf02')
+    client = Soundcloud.new(:client_id => ENV['SOUNDCLOUD_KEY'])
     @id = params[:id].to_i
 
     # Load API query once when game starts at level 1
@@ -22,7 +22,7 @@ class GamesController < ApplicationController
     @current_track_genre = @current_track.genre.capitalize
 
     # Grab three different genre types as answer choices
-    @genre_list = Genre.all.shuffle!.first(3)
+    @genre_list = Genre.all.shuffle!.first(3) ###################### Need to find current genre and avoid duplicate
 
     # Set up embed frame
     embed_info = client.get('/oembed', :url => @current_track.uri)
