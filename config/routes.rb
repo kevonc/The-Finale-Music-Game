@@ -1,10 +1,10 @@
 MusicGaming::Application.routes.draw do
-  get "games/index" => "games#index", as: "start_game"
-  # get "all-level" => "games#level", as: "all_level"
+  get "games/index" => "games#index", as: "game"
   get "level/:id" => "games#level", as: "level"
-  get "start" => "games#start", as: "start"
+  post "level/1" => "games#start_game", as: "start_game"
+  post ":id/add_points" => "games#add_points", as: "add_points"
+  post ":id/progress" => "games#progress", as: "progress"
   get "scoreboard" => "games#scoreboard", as: "scoreboard"
-  get "home/index"
   get "about" => "home#about", as: "about"
 
   root to: 'games#index'

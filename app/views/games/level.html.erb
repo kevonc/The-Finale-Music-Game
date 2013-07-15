@@ -1,5 +1,5 @@
-<h1>Games#level</h1>
-<% if @id == 1 %>
+<h1>Level <%= @current_level %></h1>
+<% if @current_level == 1 %>
 <h3>Welcome!!! GAME START NOW!!!! GOOD LUCK!!!</h3>
 <% end %>
 
@@ -11,18 +11,22 @@ Points: <%= $points %><br>
 <br>
 <div class="message"></div>
 <ul id="answers">
-  <li><button class="btn btn-info" id="correct"><%= @current_track_genre %></button></li>
+  <li>
+    <form action="/<%= @current_level %>/add_points" method="post">
+      <button class="btn btn-info" id="correct"><%= @current_track_genre %></button>
+    </form>
+  </li>
   <% @genre_list.each do |genre| %>
-    <li><button class="btn btn-info incorrect"><%= genre.kind %></button></li>
+    <li>
+      <form action="/<%= @current_level %>/progress" method="post">
+        <button class="btn btn-info incorrect"><%= genre.kind %></button>
+      </form>
+    </li>
   <% end %>
 </ul>
 <br>
 
-<% unless @id == 50 %>
-  <%= link_to "Next Level", level_path(@id + 1) %><br>
-<% else %>
-  Finish! Check how you did compared to other contestants!<br>
-<% end %>
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
