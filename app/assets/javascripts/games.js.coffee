@@ -7,3 +7,15 @@ $(document).ready ->
     0.5 - Math.random()
   )
   $("#answers").append array
+
+$(document).ready ->
+  $("div #correct").click ->
+    $(this).addClass "btn-correct"
+    $("ul#answers li").children().hide()
+    answer = $(this).text()
+    $(".message").append('<div class="btn btn-correct">You answered ' + answer + '. Correct! 10 Points granted!</div>')
+  $("div .incorrect").click ->
+    $(this).addClass "btn-incorrect"
+    $("ul#answers li").children().hide()
+    answer = $(this).text()
+    $(".message").append('<div class="btn btn-incorrect">You answered ' + answer + '. Wrong! Try harder! </div>')

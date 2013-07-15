@@ -1,3 +1,26 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul#answers {
+  list-style: none;
+  margin-left: 0;
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+
+.btn.btn-correct {
+  background-color: #FE2E64; }
+  .btn.btn-correct:hover, .btn.btn-correct:focus {
+    background-color: #FE2E64; }
+  .btn.btn-correct:active, .btn.btn-correct.active {
+    background-color: #FE2E64; }
+
+.btn.btn-incorrect {
+  background-color: #6E6E6E; }
+  .btn.btn-incorrect:hover, .btn.btn-incorrect:focus {
+    background-color: #6E6E6E; }
+  .btn.btn-incorrect:active, .btn.btn-incorrect.active {
+    background-color: #6E6E6E; }

@@ -7,12 +7,13 @@ Points: <%= @points %><br>
 
 <%= @widget.html_safe %>
 <br>
-<%= @current_track.title %><br>
+<h3><%= @current_track.title %></h3>
 <br>
+<div class="message"></div>
 <ul id="answers">
-<li><button><%= @current_track_genre %></button></li>
+<li><div class="btn btn-info" id="correct"><%= @current_track_genre %></div></li>
 <% @genre_list.each do |genre| %>
-  <li><button><%= genre.kind %></button></li>
+  <li><div class="btn btn-info incorrect"><%= genre.kind %></div></li>
 <% end %>
 </ul>
 <br>
