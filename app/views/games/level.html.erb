@@ -7,10 +7,10 @@ Points: <%= @points %><br>
 
 <%= @widget.html_safe %>
 <br>
-<%= @track.title %><br>
+<%= @current_track.title %><br>
 <br>
 <ul id="answers">
-<li><button><%= @track_genre %></button></li>
+<li><button><%= @current_track_genre %></button></li>
 <% @genre_list.each do |genre| %>
   <li><button><%= genre.kind %></button></li>
 <% end %>
@@ -30,7 +30,7 @@ Points: <%= @points %><br>
 
 ======
 <ol>
-<% $tracks_with_genre.each do |track| %>
+<% $available_tracks.each do |track| %>
   <li><%= link_to track.title, track.permalink_url %> - <%= track.genre %></li>
 <% end %>
 </ol>

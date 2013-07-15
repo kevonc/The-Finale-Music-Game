@@ -5,24 +5,27 @@ class GamesController < ApplicationController
   def level
     client = Soundcloud.new(:client_id => 'fd18da9af13744f5233916b5025adf02')
     @id = params[:id].to_i
+
+    # Load API query once when game starts
     if @id == 1
-      $tracks_with_genre = []
-      @tracks = client.get('/tracks', :limit => 100, :order => 'created_at')
-      @tracks.each do |track|
+      $available_tracks = []
+      @all_tracks = client.get('/tracks', :limit => 100, :order => 'created_at')
+      @all_tracks.each do |track|
         if track.genre && track.genre != '' && track.uri != ''
-          $tracks_with_genre << track
+          $available_tracks << track
         end
       end
     end
 
-    @track = $tracks_with_genre[@id]
-    @track_genre = @track.genre.capitalize
+    # Setting current track's info
+    @current_track = $available_tracks[@id]
+    @current_track_genre = @current_track.genre.capitalize
 
-    @genre_list = Genre.all
-    @genre_list.shuffle!
-    @genre_list = @genre_list[0..2]
+    # Grab three different genre types as answer choices
+    @genre_list = Genre.all.shuffle!.first(3)
 
-    embed_info = client.get('/oembed', :url => @track.uri)
+    # Set up embed frame
+    embed_info = client.get('/oembed', :url => @current_track.uri)
     @widget = embed_info['html']
 
     @points = 10
