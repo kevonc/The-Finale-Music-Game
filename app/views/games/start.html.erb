@@ -1,7 +1,9 @@
 <h1>Games#level</h1>
 <h3>Welcome!!! GAME START NOW!!!! GOOD LUCK!!!</h3>
 
-Starting Point: 0<br>
+Starting Point: 10<br>
+<%= @widget.html_safe %>
+<br>
 
 <%= @track.title %><br>
 <br>
@@ -17,6 +19,6 @@ Starting Point: 0<br>
 ======
 <ol>
 <% $tracks_with_genre.each do |track| %>
-  <li><%= link_to track.title, track.permalink_url %> - <%= track.genre %> - <%= track.favoritings_count %></li>
+  <li><%= link_to track.title, track.permalink_url %> - <%= track.genre %></li>
 <% end %>
 </ol>

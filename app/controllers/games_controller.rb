@@ -10,7 +10,7 @@ class GamesController < ApplicationController
     # get rid of tracks that have no genre stated
     $tracks_with_genre = []
     @tracks.each do |track|
-      if track.genre && track.genre != ''
+      if track.genre && track.genre != '' && track.uri != ''
         $tracks_with_genre << track
       end
     end
@@ -22,6 +22,9 @@ class GamesController < ApplicationController
 
     @track = $tracks_with_genre.first
     @track_genre = @track.genre.capitalize
+
+    embed_info = client.get('/oembed', :url => @track.uri)
+    @widget = embed_info['html']
   end
 
   def level

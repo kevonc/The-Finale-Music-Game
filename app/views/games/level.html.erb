@@ -22,6 +22,6 @@ Points: <%= @points %><br>
 ======
 <ol>
 <% $tracks_with_genre.each do |track| %>
-  <li><%= link_to track.title, track.permalink_url %> - <%= track.genre %> - <%= track.favoritings_count %> | <%= track.stream_url %></li>
+  <li><%= link_to track.title, track.permalink_url %> - <%= track.genre %></li>
 <% end %>
 </ol>
