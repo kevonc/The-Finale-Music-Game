@@ -3,7 +3,7 @@
 <h3>Welcome!!! GAME START NOW!!!! GOOD LUCK!!!</h3>
 <% end %>
 
-Points: <%= @points %><br>
+Points: <%= $points %><br>
 
 <%= @widget.html_safe %>
 <br>
@@ -11,10 +11,10 @@ Points: <%= @points %><br>
 <br>
 <div class="message"></div>
 <ul id="answers">
-<li><div class="btn btn-info" id="correct"><%= @current_track_genre %></div></li>
-<% @genre_list.each do |genre| %>
-  <li><div class="btn btn-info incorrect"><%= genre.kind %></div></li>
-<% end %>
+  <li><button class="btn btn-info" id="correct"><%= @current_track_genre %></button></li>
+  <% @genre_list.each do |genre| %>
+    <li><button class="btn btn-info incorrect"><%= genre.kind %></button></li>
+  <% end %>
 </ul>
 <br>
 

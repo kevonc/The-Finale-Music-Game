@@ -29,7 +29,12 @@ class GamesController < ApplicationController
     @widget = embed_info['html']
 
     # Points score
-    @points = 10
+    $points = 10
+    $points += @id
+  end
+
+  def add_points
+
   end
 
   def score

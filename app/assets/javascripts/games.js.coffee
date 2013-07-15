@@ -11,11 +11,15 @@ $(document).ready ->
 $(document).ready ->
   $("div #correct").click ->
     $(this).addClass "btn-correct"
-    $("ul#answers li").children().hide()
+    $("div .incorrect").addClass "btn-incorrect"
+    $("ul#answers li").children().addClass "disabled"
     answer = $(this).text()
-    $(".message").append('<div class="btn btn-correct">You answered ' + answer + '. Correct! 10 Points granted!</div>')
+    $(".message").append('<div class="ans corrans">You answered ' + answer + '. Correct! 10 Points granted!</div>')
+    $("ul#answers li").children().unbind()
   $("div .incorrect").click ->
-    $(this).addClass "btn-incorrect"
-    $("ul#answers li").children().hide()
+    $("div .incorrect").addClass "btn-incorrect"
+    $("div #correct").addClass "btn-correct"
+    $("ul#answers li").children().addClass "disabled"
     answer = $(this).text()
-    $(".message").append('<div class="btn btn-incorrect">You answered ' + answer + '. Wrong! Try harder! </div>')
+    $(".message").append('<div class="ans incorrans">You answered ' + answer + '. Wrong! Try harder! </div>')
+    $("ul#answers li").children().unbind()

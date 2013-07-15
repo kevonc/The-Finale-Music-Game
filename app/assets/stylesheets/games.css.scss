@@ -24,3 +24,16 @@ ul#answers {
     background-color: #6E6E6E; }
   .btn.btn-incorrect:active, .btn.btn-incorrect.active {
     background-color: #6E6E6E; }
+
+.ans {
+  font-size: 1.4em;
+  color: #fff ;
+  margin-bottom: 20px;
+  padding: 10px;
+  &.corrans {
+    background-color: #FE2E64;
+  }
+  &.incorrans {
+    background-color: #6E6E6E;
+  }
+}
