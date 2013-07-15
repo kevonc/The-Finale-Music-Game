@@ -6,11 +6,11 @@ class GamesController < ApplicationController
     client = Soundcloud.new(:client_id => 'fd18da9af13744f5233916b5025adf02')
     @id = params[:id].to_i
 
-    # Load API query once when game starts
+    # Load API query once when game starts at level 1
     if @id == 1
       $available_tracks = []
-      @all_tracks = client.get('/tracks', :limit => 100, :order => 'created_at')
-      @all_tracks.each do |track|
+      all_tracks = client.get('/tracks', :limit => 100, :order => 'created_at')
+      all_tracks.each do |track|
         if track.genre && track.genre != '' && track.uri != ''
           $available_tracks << track
         end
@@ -28,6 +28,7 @@ class GamesController < ApplicationController
     embed_info = client.get('/oembed', :url => @current_track.uri)
     @widget = embed_info['html']
 
+    # Points score
     @points = 10
   end
 
