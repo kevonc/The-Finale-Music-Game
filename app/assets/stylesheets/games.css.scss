@@ -20,6 +20,7 @@ nav {
     }
   }
   ul {
+    margin-top: 10px;
     list-style: none;
     li {
       float: left;
@@ -33,6 +34,16 @@ nav {
         border-right: none;
       }
     }
+  }
+}
+
+.brand {
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: 700;
+  letter-spacing: -1px;
+  &:hover {
+    color: #fff;
   }
 }
 

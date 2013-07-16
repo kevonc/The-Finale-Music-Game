@@ -68,6 +68,7 @@ class GamesController < ApplicationController
   end
 
   def scoreboard
+    # finish game
     # drop $points to db
 
   end
