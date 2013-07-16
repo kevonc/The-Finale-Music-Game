@@ -1,0 +1,11 @@
+<div class="well">
+  <h1>Your Favorite Tracks</h1>
+
+  <% if @favorites %>
+    <% @favorites.each do |fav| %>
+    <%= fav.track %> - <%= link_to fav.url, fav.urlw %>
+    <% end %>
+  <% else %>
+    <h5>You don't have any favorite tracks.</h5>
+  <% end %>
+</div>

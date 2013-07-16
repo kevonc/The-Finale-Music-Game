@@ -5,13 +5,15 @@
 // Universal
 body {
   background-image: url('bg.jpg');
-  background-size: cover;
+  background-size: round auto; /* Height: auto is to keep aspect ratio */
+  background-repeat: repeat;
 }
 
 nav {
   font-size: 1.4em;
   margin-top: 15px;
   margin-bottom: 20px;
+  font-family: 'Antic Slab', serif;
   a {
     color: #f39c12;
     text-decoration: none;
@@ -39,6 +41,7 @@ nav {
 
 .brand {
   color: #fff;
+  font-family: 'Carrois Gothic SC', sans-serif;
   font-size: 1.6em;
   font-weight: 700;
   letter-spacing: -1px;
