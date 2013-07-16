@@ -4,8 +4,9 @@ MusicGaming::Application.routes.draw do
   post "level/1" => "games#start_game", as: "start_game"
   post ":id/add_points" => "games#add_points", as: "add_points"
   post ":id/progress" => "games#progress", as: "progress"
-  get "scoreboard" => "games#scoreboard", as: "scoreboard"
+  get "final_score" => "games#final_score", as: "final_score"
   get "about" => "home#about", as: "about"
+  get "scoreboard" => "home#scoreboard", as: "scoreboard"
 
   root to: 'games#index'
 

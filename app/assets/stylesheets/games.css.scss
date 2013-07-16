@@ -2,28 +2,69 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Universal
+body {
+  background-image: url('bg.jpg');
+  background-size: cover;
+}
+
+nav {
+  font-size: 1.4em;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  a {
+    color: #f39c12;
+    text-decoration: none;
+    &:hover {
+      color: #f1c40f;
+    }
+  }
+  ul {
+    list-style: none;
+    li {
+      float: left;
+      padding-right: 18px;
+      padding-left: 18px;
+      border-right: 1px solid #fff;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+// Utility
+.well {
+}
+
+.center {
+  text-align: center;
+}
+
+// Gaming
+.title {
+  float: left;
+  margin-top: -8px;
+  margin-bottom: 10px;
+}
+
+.points {
+  float: right;
+  cursor: default;
+}
+
 ul#answers {
   list-style: none;
-  margin-left: 0;
+  text-align: center;
+  margin-top: 12px;
   li {
     display: inline-block;
     margin-right: 20px;
   }
 }
-
-.btn.btn-correct {
-  background-color: #FE2E64; }
-  .btn.btn-correct:hover, .btn.btn-correct:focus {
-    background-color: #FE2E64; }
-  .btn.btn-correct:active, .btn.btn-correct.active {
-    background-color: #FE2E64; }
-
-.btn.btn-incorrect {
-  background-color: #6E6E6E; }
-  .btn.btn-incorrect:hover, .btn.btn-incorrect:focus {
-    background-color: #6E6E6E; }
-  .btn.btn-incorrect:active, .btn.btn-incorrect.active {
-    background-color: #6E6E6E; }
 
 .ans {
   font-size: 1.4em;
@@ -32,8 +73,14 @@ ul#answers {
   padding: 10px;
   &.corrans {
     background-color: #FE2E64;
+    .corrans-highlight {
+      color: #B8BED3;
+    }
   }
   &.incorrans {
     background-color: #6E6E6E;
+    .incorrans-highlight {
+      color: #71C5FC;
+    }
   }
 }

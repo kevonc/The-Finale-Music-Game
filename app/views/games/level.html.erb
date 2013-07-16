@@ -1,41 +1,33 @@
-<h1>Level <%= @current_level %></h1>
-<% if @current_level == 1 %>
-<h3>Welcome!!! GAME START NOW!!!! GOOD LUCK!!!</h3>
-<% end %>
+<div class="well">
+  <div class="btn btn-large points">
+    <%= $points %> Points
+  </div>
+  <div class="title">
+    <h1>Level <%= @current_level %> / <%= @stop_at_level %></h1>
+    <% if @current_level == 1 %>
+    <h3>Welcome!!! GAME START NOW!!!! GOOD LUCK!!!</h3>
+    <% end %>
+  </div>
 
-Points: <%= $points %><br>
 
-<%= @widget.html_safe %>
-<br>
-<h3><%= @current_track.title %></h3>
-<br>
-<div class="message"></div>
-<ul id="answers">
-  <li>
-    <form action="/<%= @current_level %>/add_points" method="post">
-      <button class="btn btn-info" id="correct"><%= @current_track_genre %></button>
-    </form>
-  </li>
-  <% @genre_list.each do |genre| %>
+  <%= @widget.html_safe %>
+  <br>
+  <h3><%= @current_track.title %></h3>
+  <br>
+  <div class="message"></div>
+  <h3 class="question center">What is the Genre of This Song?</h3>
+  <ul id="answers">
     <li>
-      <form action="/<%= @current_level %>/progress" method="post">
-        <button class="btn btn-info incorrect"><%= genre.kind %></button>
+      <form action="/<%= @current_level %>/add_points" method="post">
+        <button class="btn btn-info" id="correct"><%= @current_track_genre %></button>
       </form>
     </li>
-  <% end %>
-</ul>
-<br>
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-======
-<ol>
-<% $available_tracks.each do |track| %>
-  <li><%= link_to track.title, track.permalink_url %> - <%= track.genre %></li>
-<% end %>
-</ol>
+    <% @genre_list.each do |genre| %>
+      <li>
+        <form action="/<%= @current_level %>/progress" method="post">
+          <button class="btn btn-info incorrect"><%= genre.kind %></button>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+</div>

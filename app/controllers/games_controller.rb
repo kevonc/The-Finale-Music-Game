@@ -4,7 +4,7 @@ class GamesController < ApplicationController
 
   def start_game
     # new_game = Game.create(points: 0)
-    $points = 0
+    $points = 15
     redirect_to "/level/1"
   end
 
@@ -33,14 +33,22 @@ class GamesController < ApplicationController
     # Set up embed frame
     embed_info = client.get('/oembed', :url => @current_track.uri)
     @widget = embed_info['html']
+
+    unless embed_info
+      @next_level = @current_level + 1
+      redirect_to "/level/#{@next_level}"
+    end
+
+    @stop_at_level = 20
   end
 
   def add_points
-    $points += 10  # this eventually will be a data point in db #User.games.last
+    $points += 15  # this eventually will be a data point in db #User.games.last
     sleep(3)
     @current_level = params[:id].to_i
-    if @current_level == 25
-      redirect_to scoreboard_path
+    @stop_at_level = 20
+    if @current_level == @stop_at_level
+      redirect_to final_score_path
     else
       @next_level = @current_level + 1
       redirect_to "/level/#{@next_level}"
@@ -50,9 +58,9 @@ class GamesController < ApplicationController
   def progress
     sleep(3)
     @current_level = params[:id].to_i
-    @stop_at_level = 25
+    @stop_at_level = 20
     if @current_level == @stop_at_level
-      redirect_to scoreboard_path
+      redirect_to final_score_path
     else
       @next_level = @current_level + 1
       redirect_to "/level/#{@next_level}"
