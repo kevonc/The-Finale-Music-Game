@@ -31,14 +31,3 @@ $(document).ready ->
     answer = $(this).text()
     $(".message").append('<div class="ans incorrans center">You answered <span class="incorrans-highlight">' + answer + '</span>. Wrong! Try harder!<br>Loading the next level...</div>')
     # $("ul#answers li").children().unbind()
-
-$(document).ready ->
-  $(".add-fav").submit ->
-    valuesToSubmit = $(this).serialize()
-    $.ajax(
-      url: $(this).attr("action")
-      data: valuesToSubmit
-      dataType: "JSON"
-      type: "POST"
-    ).success (json) ->
-      return false
