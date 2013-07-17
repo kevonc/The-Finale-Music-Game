@@ -10,7 +10,11 @@ class FavoritesController < ApplicationController
     @current_track = $available_tracks[@current_level]
 
     new_fav = Favorite.create(user_id: current_user.id, track: @current_track.title,
-                              url: @current_track.uri)
+                              url: @current_track.uri, genre: @current_track.genre,
+                              uploaded_by: @current_track.user["username"],
+                              created: @current_track.created_at,
+                              artwork: @current_track.artwork_url,
+                              soundcloud_id: @current_track.id)
 
     redirect_to "/level/#{@current_level}"
   end

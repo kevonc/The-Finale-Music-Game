@@ -1,11 +1,20 @@
-<div class="well">
+<div class="row-fluid well favorites">
   <h1>Your Favorite Tracks</h1>
-
   <% if @favorites %>
     <% @favorites.each do |fav| %>
-    <li><%= fav.track %> - <%= link_to fav.url, fav.url %></li>
+      <div class="span4">
+        <div class="artwork">
+          <%= image_tag(fav.artwork) %>
+        </div>
+        <div class="track-info">
+          <p><%= link_to fav.track, fav.url %></p>
+          <p><%= fav.genre %></p>
+          <p>Uploaded by <%= fav.uploaded_by %></p>
+          <p>Created at <%= fav.created %></p>
+        </div>
+      </div>
     <% end %>
   <% else %>
-    <h5>You don't have any favorite tracks.</h5>
+    <div class="span12"><h5>You don't have any favorite tracks.</h5></div>
   <% end %>
 </div>

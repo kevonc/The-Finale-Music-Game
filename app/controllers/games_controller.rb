@@ -39,6 +39,8 @@ class GamesController < ApplicationController
       @next_level = @current_level + 1
       redirect_to "/level/#{@next_level}"
     end
+
+    @stop_at_level = 20
   end
 
   def add_points

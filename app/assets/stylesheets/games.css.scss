@@ -58,6 +58,32 @@ nav {
   text-align: center;
 }
 
+// Customized Flat UI or Bootstrap
+.btn-fav {
+  background-color: #f72548;
+  &:hover, &:focus {
+    background-color: #F55670;
+  }
+  &:active {
+    background-color: #f72548;
+  }
+}
+
+.btn-points {
+  background-color: #2C3E50;
+  cursor: default;
+  &:hover, &:focus {
+    background-color: #2C3E50;
+  }
+  &:active {
+    background-color: #2C3E50;
+  }
+}
+
+.favorites > .span4:nth-child(4n) {
+    margin-left:0;
+}
+
 // Gaming
 .title {
   float: left;
@@ -65,9 +91,18 @@ nav {
   margin-bottom: 10px;
 }
 
+.top-right {
+  float: right;
+  width: 200px;
+}
+
+.fav {
+  float: left;
+}
+
 .points {
   float: right;
-  cursor: default;
+  margin-top: -20px;
 }
 
 ul#answers {

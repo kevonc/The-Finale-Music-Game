@@ -11,14 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717120322) do
+ActiveRecord::Schema.define(:version => 20130717135202) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "user_id"
     t.string   "track"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "genre"
+    t.string   "uploaded_by"
+    t.date     "created"
+    t.string   "artwork"
+    t.string   "soundcloud_id"
   end
 
   create_table "games", :force => true do |t|

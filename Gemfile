@@ -9,6 +9,7 @@ gem 'pg'
 gem 'soundcloud'
 gem 'devise'
 gem 'simple_form'
+gem 'font-awesome-sass-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

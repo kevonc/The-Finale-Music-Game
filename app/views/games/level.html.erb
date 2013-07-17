@@ -1,7 +1,16 @@
 <div class="well">
-  <div class="btn btn-large points">
-    <%= $points %> Points
+  <div class="top-right">
+    <%= form_tag("/#{@current_level}/add_fav", method: "post") do %>
+      <%= button_tag(type: 'submit', class: "btn btn-large btn-fav fav") do %>
+        <i class="icon-heart"></i> Like
+      <% end %>
+    <% end %>
+
+    <div class="btn btn-large btn-points points">
+      <%= $points %> Points
+    </div>
   </div>
+
   <div class="title">
     <h1>Level <%= @current_level %> / <%= @stop_at_level %></h1>
   </div>
@@ -26,10 +35,6 @@
       </li>
     <% end %>
   </ul>
-
-<%= form_tag("/#{@current_level}/add_fav", method: "post") do %>
-  <%= submit_tag "Add to Favorites", class: "btn btn-warning" %>
-<% end %>
 
 <% $available_tracks.each do |track| %>
   <li><%= track.title %> - <%= image_tag(track.artwork_url) %></li>
