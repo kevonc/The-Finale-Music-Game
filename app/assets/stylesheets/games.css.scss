@@ -197,8 +197,11 @@ ul#answers {
 
 // Scoreboard
 .scoreboard {
-  font-size: 1.4em;
-  ol li {
-    line-height: 1.8em;
+  font-size: 1.2em;
+  table thead {
+    font-weight: 800;
+    tr td {
+      width: 33%;
+    }
   }
 }

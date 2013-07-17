@@ -1,7 +1,7 @@
-<div class="well">
-  <h1>Congrats, you've finished the game with <%= @end_game.points %> points!</h1>
-
-  <%= link_to "Restart Game", root_path %>
+<div class="well center">
+  <h1>Congrats, you've finished The Finale with <%= @end_game.points %> points!</h1>
   <br>
-  <%= link_to "Check out scoreboard of all players", scoreboard_path %>
+  <%= link_to "Start a New Game", "/level/1", class: "btn btn-warning btn-large" %>
+  <br><br>
+  <p><%= link_to "Checkout Top Scores", scoreboard_path %></p>
 </div>

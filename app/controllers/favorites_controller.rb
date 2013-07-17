@@ -18,6 +18,10 @@ class FavoritesController < ApplicationController
                               artwork: @current_track.artwork_url,
                               soundcloud_id: @current_track.id)
 
+    respond_to do |format|
+      format.js
+    end
+
     redirect_to "/level/#{@current_level}"
   end
 end

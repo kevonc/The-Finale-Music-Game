@@ -1,10 +1,21 @@
 <div class="well">
   <h1>Top 20 Leaders @ The Finale</h1>
   <div class="scoreboard">
-    <ol>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>Points</td>
+          <td>Player</td>
+          <td>Date</td>
+        </tr>
+      </thead>
       <% @games.each do |game| %>
-        <li><%= game.points %> Points - <%= game.user.username %> - <%= time_ago_in_words(game.updated_at) %> ago</li>
+        <tr>
+          <td><%= game.points %> Points</td>
+          <td><%= game.user.username %></td>
+          <td><%= time_ago_in_words(game.updated_at) %> ago</td>
+        </tr>
       <% end %>
-    </ol>
+    </table>
   </div>
 </div>

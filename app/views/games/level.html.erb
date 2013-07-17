@@ -1,6 +1,6 @@
 <div class="well">
   <div class="top-right">
-    <%= form_tag("/#{@current_level}/add_fav", method: "post") do %>
+    <%= form_tag("/#{@current_level}/add_fav", class: "add-fav", remote: true) do %>
       <%= button_tag(type: 'submit', class: "btn btn-large btn-fav fav") do %>
         <i class="icon-heart"></i> Like
       <% end %>
@@ -23,7 +23,7 @@
   <h3 class="question center">What is the Genre of This Song?</h3>
   <ul id="answers">
     <li>
-      <%= form_tag("/#{@current_level}/add_points", class: "submit-answer", method: "post") do %>
+      <%= form_tag("/#{@current_level}/add_points", class: "submit-answer") do %>
         <%= button_tag(type: 'submit', class: 'btn btn-info correct') do %>
           <%= @current_track_genre %>
         <% end %>
@@ -31,7 +31,7 @@
     </li>
     <% @genre_list.each do |genre| %>
       <li>
-        <%= form_tag("/#{@current_level}/progress", class: "submit-answer", method: "post") do %>
+        <%= form_tag("/#{@current_level}/progress", class: "submit-answer") do %>
           <%= button_tag(type: 'submit', class: 'btn btn-info incorrect') do %>
             <%= genre.kind %>
           <% end %>
