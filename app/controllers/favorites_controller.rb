@@ -9,8 +9,10 @@ class FavoritesController < ApplicationController
     @current_level = params[:id].to_i
     @current_track = $available_tracks[@current_level]
 
-    new_fav = Favorite.create(user_id: current_user.id, track: @current_track.title,
-                              url: @current_track.uri, genre: @current_track.genre,
+    new_fav = Favorite.create(user_id: current_user.id,
+                              track: @current_track.title,
+                              url: @current_track.permalink_url,
+                              genre: @current_track.genre,
                               uploaded_by: @current_track.user["username"],
                               created: @current_track.created_at,
                               artwork: @current_track.artwork_url,

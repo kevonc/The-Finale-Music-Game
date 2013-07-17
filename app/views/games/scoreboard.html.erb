@@ -1,6 +1,10 @@
 <div class="well">
-  <h1>Leaders @ The Finale</h1>
-  <% @games.each do |game| %>
-    <li><%= game.user.email %> - <%= game.points %></li>
-  <% end %>
+  <h1>Top 20 Leaders @ The Finale</h1>
+  <div class="scoreboard">
+    <ol>
+      <% @games.each do |game| %>
+        <li><%= game.points %> Points - <%= game.user.username %> - <%= time_ago_in_words(game.updated_at) %> ago</li>
+      <% end %>
+    </ol>
+  </div>
 </div>

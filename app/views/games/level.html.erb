@@ -7,7 +7,7 @@
     <% end %>
 
     <div class="btn btn-large btn-points points">
-      <%= $points %> Points
+      <%= @game.points %> Points
     </div>
   </div>
 
@@ -23,20 +23,25 @@
   <h3 class="question center">What is the Genre of This Song?</h3>
   <ul id="answers">
     <li>
-      <%= form_tag("/#{@current_level}/add_points", method: "post") do %>
-        <%= submit_tag @current_track_genre, class: 'btn btn-info correct' %>
+      <%= form_tag("/#{@current_level}/add_points", class: "submit-answer", method: "post") do %>
+        <%= button_tag(type: 'submit', class: 'btn btn-info correct') do %>
+          <%= @current_track_genre %>
+        <% end %>
       <% end %>
     </li>
     <% @genre_list.each do |genre| %>
       <li>
-        <%= form_tag("/#{@current_level}/progress", method: "post") do %>
-          <%= submit_tag genre.kind, class: 'btn btn-info incorrect' %>
+        <%= form_tag("/#{@current_level}/progress", class: "submit-answer", method: "post") do %>
+          <%= button_tag(type: 'submit', class: 'btn btn-info incorrect') do %>
+            <%= genre.kind %>
+          <% end %>
         <% end %>
       </li>
     <% end %>
   </ul>
-
-<% $available_tracks.each do |track| %>
-  <li><%= track.title %> - <%= image_tag(track.artwork_url) %></li>
-<% end %>
+<ol>
+  <% $available_tracks.each do |track| %>
+    <li><%= track.title %></li>
+  <% end %>
+</ol>
 </div>

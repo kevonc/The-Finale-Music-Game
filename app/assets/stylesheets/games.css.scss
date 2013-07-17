@@ -3,7 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // Universal
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
+  margin: 0 0 20px; /* bottom = footer height */
   background-image: url('bg.jpg');
   background-size: round auto; /* Height: auto is to keep aspect ratio */
   background-repeat: repeat;
@@ -50,12 +56,28 @@ nav {
   }
 }
 
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 20px;
+  width: 100%;
+  font-size: 0.7em;
+  color: #A4A4A4;
+  text-align: center;
+  background-color:rgba(255,0,0,0);
+}
+
 // Utility
 .well {
 }
 
 .center {
   text-align: center;
+}
+
+h1 {
+  color: #2980B9;
 }
 
 // Customized Flat UI or Bootstrap
@@ -80,8 +102,11 @@ nav {
   }
 }
 
-.favorites > .span4:nth-child(4n) {
+.favorites > .span4 {
+  margin: 10px auto;
+  &:nth-child(3n+1) {
     margin-left:0;
+  }
 }
 
 // Gaming
@@ -93,15 +118,15 @@ nav {
 
 .top-right {
   float: right;
-  width: 200px;
+  width: 210px;
 }
 
 .fav {
-  float: left;
+  float: right;
 }
 
 .points {
-  float: right;
+  float: left;
   margin-top: -20px;
 }
 
@@ -131,5 +156,41 @@ ul#answers {
     .incorrans-highlight {
       color: #71C5FC;
     }
+  }
+}
+
+// Favorites
+.artwork {
+  width: 30%;
+  float: left;
+  img {
+    border: 1px solid #16A085;
+  }
+}
+
+.track-info {
+  width: 60%;
+  float: left;
+  padding-left: 14px;
+  h6 {
+    font-size: 1.1em;
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    margin-top: 6px;
+    font-size: 0.9em;
+    line-height: 1em;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+// Scoreboard
+.scoreboard {
+  font-size: 1.4em;
+  ol li {
+    line-height: 1.8em;
   }
 }

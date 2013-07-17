@@ -3,7 +3,7 @@
   <h2>20 Levels ahead of you</h2>
   <br>
   <% if user_signed_in? %>
-    <%= start_game %>
+    <%= link_to "Start Game", "/level/1", class: "btn btn-warning btn-large" %>
   <% else %>
     <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
   <% end %>

@@ -4,12 +4,16 @@
     <% @favorites.each do |fav| %>
       <div class="span4">
         <div class="artwork">
-          <%= image_tag(fav.artwork) %>
+          <% if fav.artwork %>
+            <%= image_tag(fav.artwork) %>
+          <% else %>
+            <%= image_tag('logo.png') %>
+          <% end %>
         </div>
         <div class="track-info">
-          <p><%= link_to fav.track, fav.url %></p>
+          <h6><%= link_to truncate(fav.track, length: 21, separator: ' '), fav.url, :target => "_blank" %></h6>
           <p><%= fav.genre %></p>
-          <p>Uploaded by <%= fav.uploaded_by %></p>
+          <p>By <%= fav.uploaded_by %></p>
           <p>Created at <%= fav.created %></p>
         </div>
       </div>
