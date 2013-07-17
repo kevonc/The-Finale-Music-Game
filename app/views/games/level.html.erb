@@ -11,13 +11,13 @@
     </div>
   </div>
 
-  <div class="title">
+  <div class="game-level">
     <h1>Level <%= @current_level %> / <%= @stop_at_level %></h1>
   </div>
 
   <%= @widget.html_safe %>
-  <br>
-  <h3><%= @current_track.title %></h3>
+
+  <h3 class="song-title"><%= @current_track.title %></h3>
   <br>
   <div class="message"></div>
   <h3 class="question center">What is the Genre of This Song?</h3>
@@ -39,9 +39,4 @@
       </li>
     <% end %>
   </ul>
-<ol>
-  <% $available_tracks.each do |track| %>
-    <li><%= track.title %></li>
-  <% end %>
-</ol>
 </div>

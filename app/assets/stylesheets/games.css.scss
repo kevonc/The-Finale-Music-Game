@@ -16,10 +16,10 @@ body {
 }
 
 nav {
-  font-size: 1.4em;
-  margin-top: 15px;
+  font-size: 1.6em;
+  margin-top: 14px;
   margin-bottom: 20px;
-  font-family: 'Antic Slab', serif;
+  font-family: 'Pathway Gothic One', sans-serif;
   a {
     color: #f39c12;
     text-decoration: none;
@@ -28,7 +28,7 @@ nav {
     }
   }
   ul {
-    margin-top: 10px;
+    margin-top: 16px;
     list-style: none;
     li {
       float: left;
@@ -79,6 +79,9 @@ footer {
 h1 {
   color: #2980B9;
 }
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Pathway Gothic One', sans-serif;
+}
 
 // Customized Flat UI or Bootstrap
 .btn-fav {
@@ -110,7 +113,8 @@ h1 {
 }
 
 // Gaming
-.title {
+.game-level {
+  width: 300px;
   float: left;
   margin-top: -8px;
   margin-bottom: 10px;
@@ -119,6 +123,10 @@ h1 {
 .top-right {
   float: right;
   width: 210px;
+}
+
+.song-title {
+  font-family: 'Carrois Gothic SC', sans-serif;
 }
 
 .fav {
@@ -173,7 +181,7 @@ ul#answers {
   float: left;
   padding-left: 14px;
   h6 {
-    font-size: 1.1em;
+    font-size: 1.3em;
     margin: 0;
     padding: 0;
   }
