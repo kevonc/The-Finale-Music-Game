@@ -14,20 +14,24 @@
   <h3 class="question center">What is the Genre of This Song?</h3>
   <ul id="answers">
     <li>
-      <%= form_tag('/add_points', method: 'post') do %>
+      <%= form_tag("/#{@current_level}/add_points", method: "post") do %>
         <%= submit_tag @current_track_genre, class: 'btn btn-info correct' %>
       <% end %>
     </li>
     <% @genre_list.each do |genre| %>
       <li>
-        <%= form_tag('/progress', method: 'post') do %>
+        <%= form_tag("/#{@current_level}/progress", method: "post") do %>
           <%= submit_tag genre.kind, class: 'btn btn-info incorrect' %>
         <% end %>
       </li>
     <% end %>
   </ul>
 
-<form action="/<%= @current_level %>/add_fav" method="post">
-  <button class="btn btn-warning">Add to Favorites</button>
-</form>
+<%= form_tag("/#{@current_level}/add_fav", method: "post") do %>
+  <%= submit_tag "Add to Favorites", class: "btn btn-warning" %>
+<% end %>
+
+<% $available_tracks.each do |track| %>
+  <li><%= track.title %> - <%= image_tag(track.artwork_url) %></li>
+<% end %>
 </div>

@@ -3,7 +3,7 @@
 
   <% if @favorites %>
     <% @favorites.each do |fav| %>
-    <%= fav.track %> - <%= link_to fav.url, fav.urlw %>
+    <li><%= fav.track %> - <%= link_to fav.url, fav.url %></li>
     <% end %>
   <% else %>
     <h5>You don't have any favorite tracks.</h5>

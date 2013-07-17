@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   end
 
   def start_game
-    # new_game = Game.create(user_id: current_user.id, points: 15)
+    new_game = Game.create(user_id: current_user.id, points: 15)
     $points = 15
     redirect_to "/level/1"
   end
@@ -43,7 +43,7 @@ class GamesController < ApplicationController
 
   def add_points
     $points += 15  # points are entered into db when game is finished
-    sleep(3)
+    # sleep(3)
     @current_level = params[:id].to_i
     @stop_at_level = 20
     if @current_level == @stop_at_level
@@ -55,7 +55,7 @@ class GamesController < ApplicationController
   end
 
   def progress
-    sleep(3)
+    # sleep(3)
     @current_level = params[:id].to_i
     @stop_at_level = 20
     if @current_level == @stop_at_level
@@ -67,7 +67,11 @@ class GamesController < ApplicationController
   end
 
   def score
-    # @end_game = Game.find_all_by_user_id(current_user.id).last
-    # @end_game.update_attributes(points: $points)
+    @end_game = Game.find_all_by_user_id(current_user.id).last
+    @end_game.update_attributes(points: $points)
+  end
+
+  def scoreboard
+    @games = Game.all
   end
 end

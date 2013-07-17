@@ -1,0 +1,6 @@
+<div class="well">
+  <h1>Leaders @ The Finale</h1>
+  <% @games.each do |game| %>
+    <li><%= game.user.email %> - <%= game.points %></li>
+  <% end %>
+</div>

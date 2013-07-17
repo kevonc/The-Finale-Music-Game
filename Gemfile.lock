@@ -141,6 +141,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple_form (2.1.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     slop (3.4.5)
     soundcloud (0.3.1)
       hashie
@@ -182,5 +185,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
+  simple_form
   soundcloud
   uglifier (>= 1.0.3)
