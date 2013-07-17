@@ -1,10 +1,12 @@
 MusicGaming::Application.routes.draw do
 
+  devise_for :users
+
   get "games/index" => "games#index", as: "game"
   get "level/:id" => "games#level", as: "level"
   post "level/1" => "games#start_game", as: "start_game"
-  post ":id/add_points" => "games#add_points", as: "add_points"
-  post ":id/progress" => "games#progress", as: "progress"
+  post "/add_points" => "games#add_points", as: "add_points"
+  post "/progress" => "games#progress", as: "progress"
   get "score" => "games#score", as: "score"
   get "about" => "home#about", as: "about"
   get "scoreboard" => "home#scoreboard", as: "scoreboard"

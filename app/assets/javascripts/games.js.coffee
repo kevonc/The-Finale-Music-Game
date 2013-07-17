@@ -9,7 +9,7 @@ $(document).ready ->
   $("#answers").append array
 
 $(document).ready ->
-  $("div #correct").click ->
+  $("div .correct").click ->
   #  $(this).addClass "btn-correct"
   #  $("div .incorrect").addClass "btn-incorrect"
     $("ul#answers li").hide()
@@ -19,7 +19,7 @@ $(document).ready ->
   #  $("ul#answers li").children().unbind()
   $("div .incorrect").click ->
   #  $("div .incorrect").addClass "btn-incorrect"
-  #  $("div #correct").addClass "btn-correct"
+  #  $("div .correct").addClass "btn-correct"
     $("ul#answers li").hide()
     $(".question").hide()
     answer = $(this).text()

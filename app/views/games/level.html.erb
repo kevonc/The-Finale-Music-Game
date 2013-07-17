@@ -14,15 +14,15 @@
   <h3 class="question center">What is the Genre of This Song?</h3>
   <ul id="answers">
     <li>
-      <form action="/<%= @current_level %>/add_points" method="post">
-        <button class="btn btn-info" id="correct"><%= @current_track_genre %></button>
-      </form>
+      <%= form_tag('/add_points', method: 'post') do %>
+        <%= submit_tag @current_track_genre, class: 'btn btn-info correct' %>
+      <% end %>
     </li>
     <% @genre_list.each do |genre| %>
       <li>
-        <form action="/<%= @current_level %>/progress" method="post">
-          <button class="btn btn-info incorrect"><%= genre.kind %></button>
-        </form>
+        <%= form_tag('/progress', method: 'post') do %>
+          <%= submit_tag genre.kind, class: 'btn btn-info incorrect' %>
+        <% end %>
       </li>
     <% end %>
   </ul>

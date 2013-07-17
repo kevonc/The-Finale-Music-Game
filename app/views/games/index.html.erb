@@ -2,5 +2,9 @@
   <h1>Explore the Beauty of Originally-Created Sounds</h1>
   <h2>20 Levels ahead of you</h2>
   <br>
-  <%= start_game %>
+  <% if user_signed_in? %>
+    <%= start_game %>
+  <% else %>
+    <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
+  <% end %>
 </div>
