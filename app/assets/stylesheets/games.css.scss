@@ -52,6 +52,7 @@ nav {
   font-size: 1.6em;
   font-weight: 700;
   letter-spacing: -1px;
+  margin-left: 10px;
   &:hover {
     color: #fff;
   }
@@ -144,11 +145,24 @@ h1,h2,h3,h4,h5,h6 {
 // about
 .about {
   p {
-    width: 68%;
     font-size: 1.3em;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
     line-height: 1.5em;
     margin: 24px auto;
   }
+}
+
+.slogan p {
+  text-align: right;
+  font-size: 2.4em;
+  font-weight: 700;
+  line-height: 0.8em;
+  color: #FE2E64;
+}
+
+.about-game {
+  padding-left: 20px;
 }
 
 // Gaming
@@ -209,12 +223,18 @@ ul#answers {
 }
 
 // Favorites
+.favorites {
+  a {
+    color: #FE2E64;
+    &:hover {
+      color: #FF5F8A;
+    }
+  }
+}
+
 .artwork {
   width: 30%;
   float: left;
-  img {
-    border: 1px solid #16A085;
-  }
 }
 
 .track-info {

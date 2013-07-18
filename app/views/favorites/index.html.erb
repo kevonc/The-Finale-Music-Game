@@ -7,13 +7,13 @@
           <% if fav.artwork %>
             <%= image_tag(fav.artwork) %>
           <% else %>
-            <%= image_tag('logo.png') %>
+            <%= image_tag('noimage.png') %>
           <% end %>
         </div>
         <div class="track-info">
           <h6><%= link_to truncate(fav.track, length: 22, separator: ' '), fav.url, :target => "_blank" %></h6>
           <p><%= fav.genre %></p>
-          <p>By <%= truncate(fav.uploaded_by, length: 16) %></p>
+          <p>by <%= truncate(fav.uploaded_by, length: 16) %></p>
           <p><%= fav.created %></p>
         </div>
       </div>
