@@ -155,10 +155,16 @@ h1,h2,h3,h4,h5,h6 {
 
 .slogan p {
   text-align: right;
-  font-size: 2.4em;
+  padding-left: 20px;
+  font-size: 2.3em;
   font-weight: 700;
-  line-height: 0.8em;
+  line-height: 1.2em;
   color: #FE2E64;
+  text-shadow: 1px 1px 1px #A4A4A4, 3px 3px 5px #F2F2F2;
+  &.author {
+    font-size: 2em;
+    font-style: italic;
+  }
 }
 
 .about-game {
@@ -259,10 +265,17 @@ ul#answers {
 // Scoreboard
 .scoreboard {
   font-size: 1.1em;
-  table thead {
+  table {
+    margin: 0 auto;
+    width: 50%;
+    thead {
     font-weight: 800;
-    tr td {
-      width: 33%;
-    }
+    tr {
+      td:nth-child(1) { width: 25%; }
+      td:nth-child(2) { width: 40%; }
+      td:nth-child(3) { width: 35%; }
+
   }
+  }
+}
 }

@@ -70,6 +70,6 @@ class GamesController < ApplicationController
   end
 
   def scoreboard
-    @games = Game.order("points DESC").limit(20)
+    @games = Game.reorder("points DESC").limit(20)
   end
 end
