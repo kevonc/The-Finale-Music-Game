@@ -39,5 +39,7 @@
       </li>
     <% end %>
   </ul>
-  <% $available_tracks.each do |track| %>||||<%= track.title %>||||<% end %>
+  <ol>
+  <% $available_tracks.each do |track| %>||||<li><%= track.title %></li>||||<% end %>
+</ol>
 </div>

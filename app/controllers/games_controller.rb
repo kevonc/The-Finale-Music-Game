@@ -11,9 +11,7 @@ class GamesController < ApplicationController
       $available_tracks = []
       all_tracks = client.get('/tracks', :limit => 100, :order => 'created_at')
       all_tracks.each do |track|
-        if track.genre && track.genre != '' && track.uri != ''
-          $available_tracks << track
-        end
+        $available_tracks << track if track.genre && track.genre != ''
       end
       $available_tracks.shuffle!
     end
@@ -31,11 +29,12 @@ class GamesController < ApplicationController
     # Grab three different genre types as answer choices, avoid duplicate
     @genre_list = []
     @all_genres = Genre.all.shuffle!
-    unless @all_genres.include?(@current_track_genre.capitalize)
+    unless @all_genres.include?(@current_track_genre.capitalize) # this is kinda weird
       @all_genres[0..2].each do |genre|
         @genre_list << genre
       end
     end
+
 
     # Set up embed frame, avoid tracks with 404 error
     begin

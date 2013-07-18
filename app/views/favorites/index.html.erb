@@ -11,10 +11,10 @@
           <% end %>
         </div>
         <div class="track-info">
-          <h6><%= link_to truncate(fav.track, length: 30, separator: ' '), fav.url, :target => "_blank" %></h6>
+          <h6><%= link_to truncate(fav.track, length: 22, separator: ' '), fav.url, :target => "_blank" %></h6>
           <p><%= fav.genre %></p>
-          <p>By <%= fav.uploaded_by %></p>
-          <p>Created at <%= fav.created %></p>
+          <p>By <%= truncate(fav.uploaded_by, length: 16) %></p>
+          <p><%= fav.created %></p>
         </div>
       </div>
     <% end %>

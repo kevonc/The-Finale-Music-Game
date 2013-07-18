@@ -12,7 +12,8 @@ body {
   margin: 0 0 20px; /* bottom = footer height */
   background-image: url('bg.jpg');
   background-size: round auto; /* Height: auto is to keep aspect ratio */
-  background-repeat: repeat;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
 }
 
 nav {
@@ -134,6 +135,9 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 2.2em;
     margin-bottom: 300px;
     color: #2980B9;
+  }
+  .home-button {
+    margin: 20px auto;
   }
 }
 
