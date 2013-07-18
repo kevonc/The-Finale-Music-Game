@@ -35,7 +35,6 @@ class GamesController < ApplicationController
       end
     end
 
-
     # Set up embed frame, avoid tracks with 404 error
     begin
       embed_info = client.get('/oembed', :url => @current_track.uri)
@@ -43,7 +42,7 @@ class GamesController < ApplicationController
       @current_track = $available_tracks[@current_level+20]
       embed_info = client.get('/oembed', :url => @current_track.uri)
     end
-    @widget = embed_info['html']
+    @widget = embed_info['html'].gsub!(/&client/, '&auto_play=true&client')
 
     @stop_at_level = 20
   end
