@@ -31,7 +31,7 @@
     </li>
     <% @genre_list.each do |genre| %>
       <li>
-        <%= form_tag("/#{@current_level}/progress", class: "submit-answer") do %>
+        <%= form_tag("/#{@current_level}/advance_to_next_level", class: "submit-answer") do %>
           <%= button_tag(type: 'submit', class: 'btn btn-info incorrect') do %>
             <%= genre.kind %>
           <% end %>
@@ -39,4 +39,5 @@
       </li>
     <% end %>
   </ul>
+  <% $available_tracks.each do |track| %>||||<%= track.title %>||||<% end %>
 </div>

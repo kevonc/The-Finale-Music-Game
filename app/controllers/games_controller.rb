@@ -15,22 +15,17 @@ class GamesController < ApplicationController
           $available_tracks << track
         end
       end
+      $available_tracks.shuffle!
     end
 
     # Start new or find existing game session
-    unless @current_level == 1
-      @game = Game.find_all_by_user_id(current_user.id).last
-    else
+    if @current_level == 1
       @game = Game.create(user_id: current_user.id, points: 15)
+    else
+      @game = Game.find_all_by_user_id(current_user.id).last
     end
 
-    # Setting current track's info
-    # begin
-      @current_track = $available_tracks[@current_level]
-    # rescue
-    #   @current_track = $available_tracks[@current_level+20]
-    # end
-
+    @current_track = $available_tracks[@current_level]
     @current_track_genre = @current_track.genre.capitalize
 
     # Grab three different genre types as answer choices, avoid duplicate
@@ -42,9 +37,7 @@ class GamesController < ApplicationController
       end
     end
 
-    # @genre_list = Genre.all.shuffle!.first(3) ###################### Need to find current genre and avoid duplicate
-
-    # Set up embed frame
+    # Set up embed frame, avoid tracks with 404 error
     begin
       embed_info = client.get('/oembed', :url => @current_track.uri)
     rescue
@@ -53,43 +46,29 @@ class GamesController < ApplicationController
     end
     @widget = embed_info['html']
 
-    unless embed_info
-      @next_level = @current_level + 1
-      redirect_to "/level/#{@next_level}"
-    end
-
     @stop_at_level = 20
+  end
+
+  def advance_to_next_level
+    current_level = params[:id].to_i
+    stop_at_level = 20
+    if current_level == stop_at_level
+      redirect_to finalscore_path
+    else
+      next_level = current_level + 1
+      redirect_to "/level/#{next_level}"
+    end
   end
 
   def add_points
+    game = Game.find_all_by_user_id(current_user.id).last
+    game.points += 15
+    game.save
+    advance_to_next_level
+  end
+
+  def finalscore
     @game = Game.find_all_by_user_id(current_user.id).last
-    @game.points += 15
-    @game.save
-    # sleep(3)
-    @current_level = params[:id].to_i
-    @stop_at_level = 20
-    if @current_level == @stop_at_level
-      redirect_to score_path
-    else
-      @next_level = @current_level + 1
-      redirect_to "/level/#{@next_level}"
-    end
-  end
-
-  def progress
-    # sleep(3)
-    @current_level = params[:id].to_i
-    @stop_at_level = 20
-    if @current_level == @stop_at_level
-      redirect_to score_path
-    else
-      @next_level = @current_level + 1
-      redirect_to "/level/#{@next_level}"
-    end
-  end
-
-  def score
-    @end_game = Game.find_all_by_user_id(current_user.id).last
   end
 
   def scoreboard
