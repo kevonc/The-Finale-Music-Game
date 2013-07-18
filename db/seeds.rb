@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Genre.destroy_all
+
 genre_array = ["R&B", "Electronic", "Avant-Garde", "Latin", "Pop", "Jazz", "Folk", "Country", "Religious", "International",
                "New Age","Heavy Metal", "Soul", "Gothic", "Disco", "Freestyle", "Opera", "Hip-hop", "Rap", "Trap", "Ambient",
                "Dubstep", "Ballads", "Trance", "Classical", "A Capella", "Funk", "Hardcore", "Progressive House", "Blues",
