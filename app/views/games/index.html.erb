@@ -1,15 +1,10 @@
-<div class="well center">
+<div class="well center home">
   <h1>Explore the Beauty of Originally-Created Sounds</h1>
-  <h2>20 Levels ahead of you</h2>
+  <h2>Hot Updated Tracks, 20 Levels, 15 Points Each</h2>
 
-  no time limit, enjoy your game
-  learn to appreciate individual music
-  gain 15 points for each correct answer
-
-  <br>
   <% if user_signed_in? %>
     <%= link_to "Start Game", "/level/1", class: "btn btn-warning btn-large" %>
   <% else %>
-    <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
+    <%= link_to "Signup to Play Now!", new_user_registration_path, class: "btn btn-warning btn-large" %>
   <% end %>
 </div>

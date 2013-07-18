@@ -66,12 +66,16 @@ footer {
   color: #A4A4A4;
   text-align: center;
   background-color:rgba(255,0,0,0);
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      color: #A4A4A4;
+    }
+  }
 }
 
 // Utility
-.well {
-}
-
 .center {
   text-align: center;
 }
@@ -109,6 +113,33 @@ h1,h2,h3,h4,h5,h6 {
   margin: 10px auto;
   &:nth-child(3n+1) {
     margin-left:0;
+  }
+}
+
+// Home
+.home {
+  background-image: url('home.png');
+  background-repeat:no-repeat;
+  background-position: center center;
+  h1 {
+    font-size: 3em;
+    margin: 20px auto;
+    color: #66BBF4;
+  }
+  h2 {
+    font-size: 2.2em;
+    margin-bottom: 300px;
+    color: #2980B9;
+  }
+}
+
+// about
+.about {
+  p {
+    width: 68%;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    margin: 24px auto;
   }
 }
 
@@ -199,7 +230,7 @@ ul#answers {
 
 // Scoreboard
 .scoreboard {
-  font-size: 1.2em;
+  font-size: 1.1em;
   table thead {
     font-weight: 800;
     tr td {
