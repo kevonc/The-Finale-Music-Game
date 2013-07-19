@@ -27,12 +27,11 @@ class GamesController < ApplicationController
     def genre_array
       Genre.list.each { |genre| @available_genres << genre.kind }
     end
+
     @available_genres = []
     genre_array
-    # Genre.list.each { |genre| @available_genres << genre.kind }
     while @available_genres.include?(@current_track_genre.capitalize) == true
       genre_array
-      # Genre.list.each { |genre| @available_genres << genre.kind }
     end
 
     # Set up embed frame, avoid tracks with 404 error
