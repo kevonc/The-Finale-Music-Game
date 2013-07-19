@@ -15,12 +15,12 @@ $(document).ready ->
     setTimeout (->
       form.submit()
     ), 1700
-  $("div .correct").click (e) ->
+  $("div .correct").click ->
     $("ul#answers li").hide()
     $(".question").hide()
     answer = $(this).text()
     $(".message").append('<div class="ans corrans center">You answered <span class="corrans-highlight">' + answer + '</span>. Correct! 15 Points granted!<br>Loading the next level...</div>')
-  $("div .incorrect").click (e) ->
+  $("div .incorrect").click ->
     $("ul#answers li").hide()
     $(".question").hide()
     answer = $(this).text()
