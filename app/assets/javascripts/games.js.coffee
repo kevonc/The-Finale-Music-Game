@@ -19,9 +19,11 @@ $(document).ready ->
     $("ul#answers li").hide()
     $(".question").hide()
     answer = $(this).text()
-    $(".message").append('<div class="ans corrans center">You answered <span class="corrans-highlight">' + answer + '</span>. Correct! 15 Points granted!<br>Loading the next level...</div>')
+    $(".message").append('<div class="ans corrans center">You answered <span class="corrans-highlight">' + answer +
+                         '</span>. Correct! 15 Points granted!<br>Loading the next level...</div>')
   $("div .incorrect").click ->
     $("ul#answers li").hide()
     $(".question").hide()
     answer = $(this).text()
-    $(".message").append('<div class="ans incorrans center">You answered <span class="incorrans-highlight">' + answer + '</span>. Wrong! Try harder!<br>Loading the next level...</div>')
+    $(".message").append('<div class="ans incorrans center">You answered <span class="incorrans-highlight">' + answer +
+                         '</span>. Wrong! Try harder!<br>Loading the next level...</div>')
