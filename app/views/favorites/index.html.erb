@@ -1,6 +1,6 @@
 <div class="row-fluid well favorites">
   <h1>Your Favorite Tracks</h1>
-  <% if @favorites %>
+  <% if @favorites.present? %>
     <% @favorites.each do |fav| %>
       <div class="span4">
         <div class="artwork">
@@ -19,6 +19,6 @@
       </div>
     <% end %>
   <% else %>
-    <div class="span12"><h5>You don't have any favorite tracks.</h5></div>
+    <div class="span12"><h4>You don't have any favorite tracks.</h4><h4> Add one by clicking "Like" during the game!</h4></div>
   <% end %>
 </div>
