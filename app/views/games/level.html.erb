@@ -33,7 +33,7 @@
       <li>
         <%= form_tag("/#{@current_level}/advance_to_next_level", class: "submit-answer") do %>
           <%= button_tag(type: 'submit', class: 'btn btn-info incorrect') do %>
-            <%= genre.kind %>
+            <%= genre %>
           <% end %>
         <% end %>
       </li>

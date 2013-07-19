@@ -24,9 +24,15 @@ class GamesController < ApplicationController
     @current_track_genre = @current_track.genre.capitalize
 
     # Grab three different genre types as answer choices, avoid duplicate
-    @available_genres = Genre.list
-    until @available_genres.include?(@current_track_genre.capitalize) == false
-      @available_genres = Genre.list
+    def genre_array
+      Genre.list.each { |genre| @available_genres << genre.kind }
+    end
+    @available_genres = []
+    genre_array
+    # Genre.list.each { |genre| @available_genres << genre.kind }
+    while @available_genres.include?(@current_track_genre.capitalize) == true
+      genre_array
+      # Genre.list.each { |genre| @available_genres << genre.kind }
     end
 
     # Set up embed frame, avoid tracks with 404 error
