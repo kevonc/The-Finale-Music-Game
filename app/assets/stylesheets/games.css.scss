@@ -127,6 +127,9 @@ h1,h2,h3,h4,h5,h6 {
   background-image: url('home.png');
   background-repeat:no-repeat;
   background-position: center center;
+  background-size: 100%;
+  background-color: #000;
+
   h1 {
     font-size: 3em;
     margin: 30px auto;
